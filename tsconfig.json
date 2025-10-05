@@ -23,7 +23,13 @@
 
     "paths": {
       "@types": ["./src/types.ts"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/ui/*"],
+      "@blocks/*": ["./src/components/blocks/*"],
+      "@pages/*": ["./src/components/pages/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   },
   "include": ["src"]
