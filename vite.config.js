@@ -17,4 +17,5 @@ export default defineConfig({
       "@mixins": path.resolve(__dirname, "src/styles/mixins.scss"),
     },
   },
+  base: 'timers'
 })
