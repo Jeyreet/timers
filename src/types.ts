@@ -1,0 +1,1 @@
+export type ExtraStyles<T> = Partial<Record<keyof T, string>>
