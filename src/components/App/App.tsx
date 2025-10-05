@@ -1,14 +1,14 @@
-import { type ExtraStyles } from '@types'
-import c from 'clsx'
-
+import Content from '@blocks/Content'
+import Menu from '@blocks/Menu'
 import styles from './App.module.scss'
 
-type Props = {
-  extraStyles?: ExtraStyles<typeof styles>
-}
-
-const App = ({ extraStyles = {} }: Props) => {
-  return <div className={c(styles.app, extraStyles.app)}>TIMERS</div>
+const App = () => {
+  return (
+    <div className={styles.app}>
+      <Menu />
+      <Content />
+    </div>
+  )
 }
 
 export default App
