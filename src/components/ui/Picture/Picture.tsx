@@ -1,19 +1,21 @@
+import { type ImgHTMLAttributes } from 'react'
 import styles from './Picture.module.scss'
 
-type Props = {
+type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
   image: {
-    sources: Record<string, string>[]
+    sources: Array<{ srcset: string; type: `${string}/${string}` }>
     fallback: string
   }
+  alt: string
 }
 
-const Picture = ({ image }: Props) => {
+const Picture = ({ image, ...props }: Props) => {
   return (
     <picture className={styles.picture}>
       {image.sources.map(({ srcset, type }) => (
         <source key={srcset} srcSet={srcset} type={type} />
       ))}
-      <img src={image.fallback} alt="Hero Image" />
+      <img src={image.fallback} {...props} />
     </picture>
   )
 }
