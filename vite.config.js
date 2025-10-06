@@ -2,10 +2,11 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vite'
 import sassDts from 'vite-plugin-sass-dts'
+import srcset from 'vite-plugin-srcset'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), sassDts()],
+  plugins: [react(), sassDts(), srcset()],
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),
