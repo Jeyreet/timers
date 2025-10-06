@@ -36,3 +36,41 @@
     border-top: 2px solid;
   }
 }
+
+.user {
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include width-more(1024px) {
+    background-color: #fff5;
+  }
+
+  @include width-less(1023px) {
+    justify-content: center;
+  }
+
+  @include width-less(479px) {
+    margin: 10px;
+  }
+}
+
+.userpic {
+  --size: 60px;
+
+  width: var(--size);
+  height: var(--size);
+  border-radius: 10px;
+
+  @include width-less(479px) {
+    --size: 30px;
+  }
+}
+
+.username {
+  @include width-less(1023px) {
+    display: none;
+  }
+}
