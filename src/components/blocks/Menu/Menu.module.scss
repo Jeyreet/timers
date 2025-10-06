@@ -1,7 +1,9 @@
 @use '@mixins' as *;
 
 .menu {
-  background-color: #1495ff;
+  --darker-color: color-mix(in srgb, var(--accent-color) 60%, #000);
+
+  background: linear-gradient(45deg, var(--accent-color), var(--darker-color));
   color: #fff;
 
   @include width-more(720px) {
