@@ -13,7 +13,7 @@ const Picture = ({ image, ...props }: Props) => {
   return (
     <picture className={styles.picture}>
       {image.sources.map(({ srcset, type }) => (
-        <source key={srcset} srcSet={srcset} type={type} />
+        <source className={styles.source} key={srcset} srcSet={srcset} type={type} />
       ))}
       <img src={image.fallback} {...props} />
     </picture>
