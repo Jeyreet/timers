@@ -1,0 +1,74 @@
+$dot-count: 5;
+$dot-size: 10px;
+$dot-distance: 10px;
+$animation-speed: 2s;
+
+.spinner {
+  --dot-count: #{$dot-count};
+  --dot-size: #{$dot-size};
+  --dot-distance: #{$dot-distance};
+  --animation-speed: #{$animation-speed};
+  --container-width: calc((var(--dot-size) + var(--dot-distance)) * var(--dot-count));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: var(--container-width);
+  height: var(--dot-size);
+  position: relative;
+
+  & > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: 50%;
+    background-color: currentcolor;
+    opacity: 0;
+    animation:
+      movement var(--animation-speed) infinite linear,
+      pulse var(--animation-speed) infinite ease-in-out;
+
+    @for $i from 1 through $dot-count {
+      &:nth-child(#{$i}) {
+        animation-delay: ($i - 1) * $animation-speed / $dot-count;
+      }
+    }
+  }
+}
+
+@keyframes movement {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: calc(var(--container-width) - var(--dot-size));
+  }
+}
+
+@keyframes pulse {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+
+  40% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  60% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0;
+    opacity: 0;
+  }
+}
