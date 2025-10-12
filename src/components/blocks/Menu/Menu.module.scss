@@ -1,73 +1,17 @@
 @use '@mixins' as *;
 
 .menu {
-  --darker-color: color-mix(in srgb, var(--accent-color) 60%, #000);
-
-  background: linear-gradient(45deg, var(--accent-color), var(--darker-color));
-  color: #fff;
-  border-image: linear-gradient(
-      45deg,
-      color-mix(in srgb, var(--accent-color) 80%, #000),
-      color-mix(in srgb, var(--darker-color) 80%, #000)
-    )
-    1;
-
-  @include width-more(720px) {
-    width: 25%;
-    max-width: 300px;
-    min-width: 200px;
-  }
-
-  @include width-between(480px, 719px) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    translate: calc(-100% - 1px) 0;
-  }
-
-  @include width-more(480px) {
-    border-right: 2px solid;
-  }
-
-  @include width-less(479px) {
-    height: 50px;
-    border-top: 2px solid;
-  }
+  background-color: var(--color-menu-background);
+  border-radius: 16px;
+  height: 60px;
 }
 
 .user {
-  border-radius: 10px;
-  margin: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-
-  @include width-more(1024px) {
-    background-color: #fff5;
-  }
-
-  @include width-less(1023px) {
-    justify-content: center;
-  }
-
-  @include width-less(479px) {
-    margin: 10px;
-  }
+  --foo: 0;
 }
 
 .userpic {
-  --size: 60px;
-
-  width: var(--size);
-  height: var(--size);
-  border-radius: 10px;
-  overflow: hidden;
-
-  @include width-less(479px) {
-    --size: 30px;
-  }
+  display: none;
 }
 
 .username {
