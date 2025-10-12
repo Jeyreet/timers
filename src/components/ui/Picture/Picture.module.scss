@@ -1,7 +1,12 @@
 .picture {
-  display: contents;
+  --foo: 0;
 }
 
 .source {
   display: none;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
 }

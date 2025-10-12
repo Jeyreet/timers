@@ -63,6 +63,7 @@
   width: var(--size);
   height: var(--size);
   border-radius: 10px;
+  overflow: hidden;
 
   @include width-less(479px) {
     --size: 30px;
