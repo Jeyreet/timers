@@ -3,18 +3,50 @@
 .menu {
   background-color: var(--color-menu-background);
   border-radius: 16px;
-  height: 60px;
+  display: flex;
+  align-items: stretch;
+  padding: 8px;
+  gap: 8px;
 }
 
-.user {
-  --foo: 0;
+.item {
+  background-color: var(--color-menu-item-background);
+  border-radius: 8px;
+  padding: 8px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color-menu-item-hover-background);
+  }
 }
 
-.userpic {
-  display: none;
+.gap {
+  flex-grow: 1;
 }
 
-.username {
+.icon {
+  height: 1.5lh;
+}
+
+.image {
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.label {
+  padding-right: 4px;
+
+  @include width-less(479px) {
+    display: none;
+  }
+}
+
+.name {
+  padding-left: 4px;
+
   @include width-less(1023px) {
     display: none;
   }

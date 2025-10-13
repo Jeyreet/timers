@@ -4,12 +4,16 @@
   --color-text: oklch(0% 0 0deg);
   --color-app-background: oklch(80% 0 0deg);
   --color-menu-background: oklch(90% 0 0deg);
+  --color-menu-item-background: oklch(80% 0 0deg);
+  --color-menu-item-hover-background: oklch(70% 0 0deg);
   --color-content-background: oklch(90% 0 0deg);
 
   @media (prefers-color-scheme: dark) {
     --color-text: oklch(100% 0 0deg);
     --color-app-background: oklch(15% 0 0deg);
     --color-menu-background: oklch(20% 0 0deg);
+    --color-menu-item-background: oklch(25% 0 0deg);
+    --color-menu-item-hover-background: oklch(30% 0 0deg);
     --color-content-background: oklch(20% 0 0deg);
   }
 }
