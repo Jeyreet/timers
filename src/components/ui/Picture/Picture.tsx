@@ -1,13 +1,10 @@
 import { type HTMLAttributes, type ImgHTMLAttributes } from 'react'
-import type { ExtraStyles } from '@types'
+import type { ExtraStyles, Image } from '@types'
 import { mergeStyles } from '@utils/mergeStyles'
 import defaultStyles from './Picture.module.scss'
 
 type Props = HTMLAttributes<HTMLPictureElement> & {
-  image: {
-    sources: Array<{ srcset: string; type: `${string}/${string}` }>
-    fallback: string
-  }
+  image: Image
   imageProps?: Omit<ImgHTMLAttributes<HTMLImageElement>, 'className' | 'src'>
   extraStyles?: ExtraStyles<typeof defaultStyles>
 }
