@@ -1,25 +1,25 @@
-import { type HTMLAttributes, type ImgHTMLAttributes } from 'react'
+import { type ImgHTMLAttributes } from 'react'
 import type { ExtraStyles, Image } from '@types'
 import { mergeStyles } from '@utils/mergeStyles'
 import defaultStyles from './Picture.module.scss'
 
-type Props = HTMLAttributes<HTMLPictureElement> & {
+type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> & {
+  alt: string
   image: Image
-  imageProps?: Omit<ImgHTMLAttributes<HTMLImageElement>, 'className' | 'src'>
   extraStyles?: ExtraStyles<typeof defaultStyles>
 }
 
 const Picture = (props: Props) => {
-  const { image, imageProps: { alt, ...imageRestProps } = {}, className, extraStyles = {}, ...pictureProps } = props
+  const { image, className, extraStyles, ...imageProps } = props
 
-  const styles = mergeStyles(defaultStyles, extraStyles, { picture: className })
+  const styles = mergeStyles(defaultStyles, extraStyles, { image: className })
 
   return (
-    <picture className={styles.picture} {...pictureProps}>
+    <picture className={styles.picture}>
       {image.sources.map(({ srcset, type }) => (
         <source className={styles.source} key={srcset} srcSet={srcset} type={type} />
       ))}
-      <img className={styles.image} src={image.fallback} alt={alt || ''} {...imageRestProps} />
+      <img className={styles.image} src={image.fallback} {...imageProps} />
     </picture>
   )
 }
