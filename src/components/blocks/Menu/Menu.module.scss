@@ -4,7 +4,6 @@
   background-color: var(--color-menu-background);
   border-radius: 16px;
   display: flex;
-  align-items: stretch;
   padding: 8px;
   gap: 8px;
 
@@ -27,34 +26,41 @@
   }
 }
 
-.gap {
-  flex-grow: 1;
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.item:last-child {
+  margin-left: auto;
+
+  @include width-less(1023px) {
+    padding: 0;
+  }
 
   @include width-less(479px) {
-    display: none;
+    margin-left: initial;
+  }
+
+  .icon {
+    border-radius: 4px;
+    object-fit: contain;
+
+    @include width-less(1023px) {
+      border-radius: 8px;
+      width: calc(1.5em + 16px);
+      height: calc(1.5em + 16px);
+    }
   }
 }
 
-.icon {
-  height: 1.5lh;
-}
-
-.image {
-  border-radius: 4px;
-  object-fit: contain;
-}
-
 .label {
-  padding-right: 4px;
-
   @include width-less(479px) {
     display: none;
   }
 }
 
 .name {
-  padding-left: 4px;
-
   @include width-less(1023px) {
     display: none;
   }

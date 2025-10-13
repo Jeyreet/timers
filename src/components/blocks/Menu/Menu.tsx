@@ -19,10 +19,9 @@ const Menu = () => {
         <Gear className={styles.icon} />
         <span className={styles.label}>Settings</span>
       </Link>
-      <div className={styles.gap} />
       <Link to="/profile" className={styles.item}>
         <span className={styles.name}>Username username</span>
-        <Picture image={userImage} className={styles.icon} extraStyles={{ image: styles.image }} />
+        <Picture className={styles.icon} alt="User profile picture" image={userImage} />
       </Link>
     </div>
   )
