@@ -3,10 +3,26 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import sassDts from 'vite-plugin-sass-dts'
 import srcset from 'vite-plugin-srcset'
+import svgr from 'vite-plugin-svgr'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), sassDts(), srcset()],
+  plugins: [
+    react(),
+    sassDts(),
+    srcset(),
+    svgr({
+      include: '**/icons/*.svg',
+      svgrOptions: {
+        memo: true,
+        replaceAttrValues: { '#000000': 'currentColor' },
+        svgProps: {
+          fill: 'currentColor',
+          stroke: 'currentColor',
+        },
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),
